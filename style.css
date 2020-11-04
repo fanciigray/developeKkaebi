@@ -15,7 +15,7 @@
 
 
 body { background-color: #F8F0DE; margin-left: 0%;}
-header { position: fixed; display: grid; grid: repeat(16, 120px);}
+header { position: fixed; display: absolute; grid: repeat(16, 120px);}
 #logo { border: none; width: 120px; height: 120px; margin: 0; grid-column: 1/11;}
 #logo img { margin: 30px 900px 30px 300px;}
 #navigator { border: none; width: 120px; height: 120px; margin-top: 0%; margin: 0; grid-column: 16;}
