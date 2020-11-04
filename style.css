@@ -1,14 +1,22 @@
-// 즐거운이야기체 웹폰트 적용이 안되어서 보이는데 이거 확인 한 번만 해주세요.
 #kkaebimarketIntro {
     font-family: 'OTEnjoystoriesBA';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/OTEnjoystoriesBA.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
-
 .content {
     font-family: 'S-CoreDream-3Light';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+
+    text-align: center;
 }
+
+
+body { background-color: #F8F0DE; margin-left: 0%;}
+header { position: fixed; display: grid; grid: repeat(16, 120px);}
+#logo { border: none; width: 120px; height: 120px; margin: 0; grid-column: 1/11;}
+#logo img { margin: 30px 900px 30px 300px;}
+#navigator { border: none; width: 120px; height: 120px; margin-top: 0%; margin: 0; grid-column: 16;}
+#navigator img { margin: 45px 44px 45px 1300px;}
