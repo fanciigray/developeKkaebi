@@ -3,36 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>깨비슈퍼</title>
+    <style>
+        body {background-color: #f8f0de;}
+        input {display: none;}
+        .open {
+            background-color: #2b2b2b;
+            width: 32px;
+            height: 3px;
+            display: block;
+            border-radius: 2px;
+            cursor: circle;
+            position: relative;
+            top: 52px;
+        }
+
+        .open::before {
+            content: "";
+            background-color: #2b2b2b;
+            width: 32px;
+            height: 3px;
+            display: block;
+            border-radius: 2px;
+            position: relative;
+            top: -8px;
+            transform: rotate(0deg);
+            transition: all 0.3s ease;
+        }
+
+        .open::after {
+            content: "";
+            background-color: #2b2b2b;
+            width: 32px;
+            height: 3px;
+            display: block;
+            border-radius: 2px;
+            position: relative;
+            top: 5px;
+            transform: rotate(0deg);
+            transition: all 0.3s ease;
+        }
+
+        .menu-open {
+            width: 32px;
+            height: 20px;
+            display: block;
+            padding: 15px;
+            cursor: circle;
+            float: right;
+        }
+
+        .menu {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            top: 0%;
+            left: 0%;
+            background: #2b2b2b;
+        }
+
+        .menu label {
+        }
+
+        .menu .menu-menu-content {
+
+        }
+
+        .menu ul {
+            list-style: none;
+            padding: 0%;
+            margin: 0 auto;
+        }
+
+        .menu ul li a {
+            display: block;
+            color: #f8f0de;
+            text-decoration: none;
+            transition: color 0.2s;
+            padding: 10px 0;
+        }
+
+        .menu ul li a:hover {
+            
+        }
+
+        .menu ul lii:hover {
+
+        }
+
+        .menu-effects {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5, visibility 0.5s;
+        }
+
+        .menu-effects ul {
+            transform: translateY(0%);
+            transition: all 0.5s;
+        }
+
+        #menu-toggle:checked ~ .menu-effects {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.5s;
+        }
+
+        #menu-toggle:checked ~ .menu-open .open {
+            opacity: 1;
+        }
+
+        #menu-toggle:checked ~ .menu-open .open {
+            background-color: transparent;
+        }
+        
+        #menu-toggle:checked ~ .menu-open .open::before {
+            content: "";
+            background-color: #f8f0de;
+            transform: rotate(45deg);
+            position: absolute;
+            top: 0%;
+            right: 0%;
+            z-index: 1;
+        }
+
+        #menu-toggle:checked ~ .menu-open .open::after {
+            content: "";
+            background-color: #f8f0de;
+            transform: rotate(-45deg);
+            position: relative;
+            top: 0%;
+            right: 0%;
+            z-index: 1;
+        }
+
+        #menu-toggle:not(:checked) ~ .menu-effects ul {
+            transform: translateY(-30%);
+        }
+
+    </style>
 </head>
 <body>
-    <header class="header">
-        <div id="logo"><a href="index.html"><img src="src/logo.svg" alt="로고" width="60" height="50"></a></div>
-        <div id="navigator"><img src="src/burgerNav.svg" alt="햄버거 네비게이션" width="32"></div>
-    </header>
-    <div class="content">
-        <br><br><br><br><br><br><br>
-        내용이 있다고 치자 
-        이동이 가능하다고 치자
-        <div class="button"><a href="game.html">게임하러 가기</a></div>
-        그 다음 내용이 있다고 치자 
-        있다고 치자
-        <div class="button"><a href="trpg.html">TRPG 시나리오 보기</a></div>
-        <br>
-        Project Me.A
-        <br>
-        도깨비와 함께하는 익숙하지만 낯선 곳에서의 모험
-        <br>
-        <div class="divideLine"></div>
-        <br>
-        그 첫번째 이야기
-        <br>
-        <div id="kkaebimarketIntro">깨비슈퍼</div>
-        스크롤 내려보기
-        
-        <img class="test" src="src/targetFig.png" alt="이렇게 작업하면 됨" width="1920">
+    <div class="holder">
+        <div id="menu-area">
+            <input type="checkbox" id="menu-toggle"></input>
+            <label for="menu-toggle" class="menu-open">
+                <div class="open"></div>
+            </label>
+            <div class="menu menu-effects">
+                <label for="menu-toggle"></label>
+                <div class="menu-content">
+                    <ul>
+                        <li><a href="#">소개</a></li>
+                        <li><a href="#">게임</a></li>
+                        <li><a href="#">TRPG 시나리오</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <header>
+
+        </header>
+        <div class="container"></div>
     </div>
-    <footer class="footer"></footer>
 </body>
 </html>
