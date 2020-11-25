@@ -4,149 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>깨비슈퍼</title>
-    <style>
-        body {background-color: #f8f0de;}
-        input {display: none;}
-        .open {
-            background-color: #2b2b2b;
-            width: 32px;
-            height: 3px;
-            display: block;
-            border-radius: 2px;
-            cursor: circle;
-            position: relative;
-            top: 52px;
-        }
-
-        .open::before {
-            content: "";
-            background-color: #2b2b2b;
-            width: 32px;
-            height: 3px;
-            display: block;
-            border-radius: 2px;
-            position: relative;
-            top: -8px;
-            transform: rotate(0deg);
-            transition: all 0.3s ease;
-        }
-
-        .open::after {
-            content: "";
-            background-color: #2b2b2b;
-            width: 32px;
-            height: 3px;
-            display: block;
-            border-radius: 2px;
-            position: relative;
-            top: 5px;
-            transform: rotate(0deg);
-            transition: all 0.3s ease;
-        }
-
-        .menu-open {
-            width: 32px;
-            height: 20px;
-            display: block;
-            padding: 15px;
-            cursor: circle;
-            float: right;
-        }
-
-        .menu {
-            position: fixed;
-            width: 100vw;
-            height: 100vh;
-            top: 0%;
-            left: 0%;
-            background: #2b2b2b;
-        }
-
-        .menu label {
-        }
-
-        .menu .menu-menu-content {
-
-        }
-
-        .menu ul {
-            list-style: none;
-            padding: 0%;
-            margin: 0 auto;
-        }
-
-        .menu ul li a {
-            display: block;
-            color: #f8f0de;
-            text-decoration: none;
-            transition: color 0.2s;
-            padding: 10px 0;
-        }
-
-        .menu ul li a:hover {
-            
-        }
-
-        .menu ul lii:hover {
-
-        }
-
-        .menu-effects {
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.5, visibility 0.5s;
-        }
-
-        .menu-effects ul {
-            transform: translateY(0%);
-            transition: all 0.5s;
-        }
-
-        #menu-toggle:checked ~ .menu-effects {
-            opacity: 1;
-            visibility: visible;
-            transition: opacity 0.5s;
-        }
-
-        #menu-toggle:checked ~ .menu-open .open {
-            opacity: 1;
-        }
-
-        #menu-toggle:checked ~ .menu-open .open {
-            background-color: transparent;
-        }
-        
-        #menu-toggle:checked ~ .menu-open .open::before {
-            content: "";
-            background-color: #f8f0de;
-            transform: rotate(45deg);
-            position: absolute;
-            top: 0%;
-            right: 0%;
-            z-index: 1;
-        }
-
-        #menu-toggle:checked ~ .menu-open .open::after {
-            content: "";
-            background-color: #f8f0de;
-            transform: rotate(-45deg);
-            position: relative;
-            top: 0%;
-            right: 0%;
-            z-index: 1;
-        }
-
-        #menu-toggle:not(:checked) ~ .menu-effects ul {
-            transform: translateY(-30%);
-        }
-
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="holder">
+    <header class="container">
         <div id="menu-area">
             <input type="checkbox" id="menu-toggle"></input>
-            <label for="menu-toggle" class="menu-open">
+            <div class="logo"><a href="#"></a></div>
+            <label for="menu-toggle" class="menu-open header">
                 <div class="open"></div>
             </label>
             <div class="menu menu-effects">
@@ -154,16 +19,57 @@
                 <div class="menu-content">
                     <ul>
                         <li><a href="#">소개</a></li>
-                        <li><a href="#">게임</a></li>
-                        <li><a href="#">TRPG 시나리오</a></li>
+                        <li><a href="game_test.html">게임</a></li>
+                        <li><a href="trpg.html">TRPG 시나리오</a></li>
                     </ul>
+                    <div class="footer"></div>
                 </div>
             </div>
         </div>
-        <header>
-
-        </header>
-        <div class="container"></div>
+    </header>
+    <div class="container">
+        <section class="intro">
+            <div>
+                <div class="circle-blue big"></div>
+                <div class="market-silhouette"></div>
+            </div>
+            <div class="commentary">
+                <h1>익숙하지만<br>낯선<div class="circle-blue small"></div></h1>
+                <p class="story">
+                    어릴 적부터 살던 동네를 떠난다는 것. <br>
+                    그것은 어린 아이에게도 매우 아쉬운 일이다. <br>
+                    떠나기 전, 추억을 되살리며 동네를 돌아디니던 중, <br>
+                    길을 잃어버린 아이는 '깨비슈퍼'를 발견하게 된다.
+                </p>
+                <div class="button">
+                    <p>게임하러 가기<div class="go"></div></p>
+                    <p>TRPG 시나리오 보기<div class="go"></div></p>
+                </div>
+            </div>
+            <section class="name">
+                <h1>Project Me.A</h1>
+                <p class="light">도깨비와 함께하는 익숙하지만 낯선 곳에서의 모험</p>
+                <div class="divide-line"></div>
+                <p class="medium">그 첫번째 이야기,</p>
+                <h1 class="title">깨비슈퍼</h1>
+            </section>
+            <section class="sub-intro">
+                <div class="circle-red big">
+                    <div class="junha-silhouette"></div>
+                </div>
+                <div class="commentary">
+                    <h1>게임</h1>
+                    <p>어릴 적부터 할머니와 살았던 집을 떠나기 전,<br>
+                    아직 어린 주인공 우주는 아쉬움을 떨쳐내지 못하고<br>
+                    추억을 되살리며 동네를 돌아다닌다. <br>
+                    그러던 중 길을 잃게 되고, '깨비슈퍼'를 발견하게 된다.</p>
+                </div>
+                <div class="button">
+                    <p>게임하러 가기<div class="go"></div></p>
+                </div>
+            </section>
+        </section>
+        
     </div>
 </body>
 </html>
