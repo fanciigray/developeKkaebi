@@ -32,7 +32,7 @@
 /* 이미지 소스 집어넣기 & 움직이기 */
 #logo {
     background-image: url(src/logo.svg);
-    margin-top: 30px; width: 62px; height: 62px;
+    margin-top: 30px; width: 62px; height: 62px; background-repeat: no-repeat; padding: 0%;
 }
 #bg-market {
     background-image: url(src/market_silhouette.svg);
@@ -101,6 +101,7 @@ h1 {font-size: 111px; font-family: 'S-CoreDream-7ExtraBold';}
 h2 {font-size: 60px; font-family: 'S-CoreDream-7ExtraBold';}
 h3 {font-size: 24px; font-family: 'S-CoreDream-6Bold';}
 p {font-size: 18px; font-family: 'S-CoreDream-2ExtraLight';}
+a {text-decoration: none; color: black;}
 
 .r-red {background-color: #bf452d; border-radius: 50%;}
 .r-blue {background-color: #4798b3; border-radius: 50%;}
