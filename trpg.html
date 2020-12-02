@@ -7,25 +7,36 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="container">
-        <div id="menu-area">
-            <input type="checkbox" id="menu-toggle"></input>
-            <label for="menu-toggle" class="menu-open header">
-                <div class="open"></div>
-            </label>
-            <div class="menu menu-effects">
-                <label for="menu-toggle"></label>
-                <div class="menu-content">
-                    <ul>
-                        <li><a href="#">소개</a></li>
-                        <li><a href="game_test.html">게임</a></li>
-                        <li><a href="trpg.html">TRPG 시나리오</a></li>
-                    </ul>
-                    <div class="footer"></div>
-                </div>
+    <!-- 오버레이 네비게이션 자리 -->
+
+    <!-- 메인 페이지 자리 -->
+    <header>
+        <div id="logo"><a href="test.html"></a></div>
+        <div class="nav-bar"></div>
+    </header>
+    <section class="trpg-layout">
+        <div class="trpg-comment">
+            <h3>CoC TRPG 시나리오</h3>
+            <h2>시나리오 제목</h2>
+            <div class="download"><h3>PDF 다운로드</h3><a href="#"><div id="download-icon"></div></a></div>
+            <p>
+                오래간만에 받은 용돈을 들고 군것질하기 위해 슈퍼에 들린 탐사자.<br>
+                즐겁게 군것질거리를 고르고 계산대 앞으로 가니 그곳에는<br>
+                주인 할아버지, 할머니도 아닌 익숙한 얼굴의 KPC가 있었습니다.<br>
+                KPC의 등장에 의아해하는 탐사자에게 KPC는 한가지 부탁을 들어줄 수 있냐며 말을 걸어온다.
+            </p>
+            <div
+             class="button-area">
+                <div class="h-button b-shadow" id="trpg-1"><p>분위기</p></div>
+                <div class="h-button r-shadow" id="trpg-2"><p>유형</p></div>
+                <div class="h-button b-shadow" id="trpg-3"><p>인원</p></div>
+                <div class="h-button r-shadow" id="trpg-4"><p>시간</p></div>
+                <div class="h-button b-shadow" id="trpg-5"><p>PL 난이도</p></div>
+                <div class="h-button r-shadow" id="trpg-6"><p>KP 난이도</p></div>
+                <div class="h-button b-shadow" id="trpg-7"><p>로스트</p></div>
             </div>
         </div>
-    </header>
-    <div class="container"></div>
+        <div class="trpg-bg" id="trpg-bg"></div>
+    </section>
 </body>
 </html>
