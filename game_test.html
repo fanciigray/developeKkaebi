@@ -6,9 +6,37 @@
     <title>깨비슈퍼</title>
     <script src="lib/p5.js"></script>
     <script src="lib/p5.play.js"></script>
-
+    <script src="sketch.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- 오버레이 메뉴 영역 -->
+    <div id="navigation" class="overlay">
+        <header>
+            <a href="index.html"><div id="white-logo"></div></a>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav();">
+                <img src="src/nav-x.svg" alt="close navigation" width="28px">
+            </a>
+        </header>
+        <div class="overlay-contents">
+            <a href="about.html"><h2>소개</h2></a>
+            <a href="#"><h2>게임</h2></a>
+            <a href="trpg.html"><h2>TRPG 시나리오</h2></a>
+        </div>
+    </div>
 
+     <!-- 본문 영역 -->
+     <header>
+        <a href="index.html"><div id="logo"></div></a>
+        <div class="nav-bar" style="cursor: pointer; font-size: 30px; margin-top: 50px;" onclick="openNav();">
+            <img src="src/nav.svg" alt="navigation" width="32px">
+        </div>
+    </header>
+    <section id="game-kkeabimarket" class="game-area"></section>
+
+    <script>
+        function openNav() {document.getElementById('navigation').style.width = '100%';}
+        function closeNav() {document.getElementById('navigation').style.width = '0%';}
+    </script>
 </body>
 </html>
