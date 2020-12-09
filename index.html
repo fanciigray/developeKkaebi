@@ -8,14 +8,31 @@
 </head>
 <body>
     <!-- 오버레이 네비게이션 자리 -->
+    <div id="navigation" class="overlay">
+        <header>
+            <a href="index.html"><div id="white-logo"></div></a>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav();">
+                <img src="src/nav-x.svg" alt="close navigation" width="28px">
+            </a>
+        </header>
+        <div class="overlay-contents">
+            <a href="about.html"><h2>소개</h2></a>
+            <a href="#"><h2>게임</h2></a>
+            <a href="trpg.html"><h2>TRPG 시나리오</h2></a>
+        </div>
+    </div>
 
     <!-- 메인 페이지 자리 -->
     <header>
-        <a href="test.html"><div id="logo"></div></a>
-        <div class="nav-bar"></div>
+        <a href="index.html"><div id="logo"></div></a>
+        <div class="nav-bar" style="cursor: pointer; font-size: 30px; margin-top: 50px;" onclick="openNav();">
+            <img src="src/nav.svg" alt="navigation" width="32px">
+        </div>
     </header>
     <section class="main-first">
-        <div id="bg-market"></div>
+        <div id="bg-market">
+            <img src="src/market_silhouette_main.svg" alt="kkeabi-market silhouette" width="1300px">
+        </div>
         <div>
             <h1>익숙하지만<br>낯선</h1><div class="r-blue small" id="r-2nd"></div>
             <p>
@@ -24,8 +41,8 @@
                 떠나기 전, 추억을 되살리며 동네를 돌아다니던 중,<br>
                 길을 잃어버린 아이는 '깨비슈퍼'를 발견하게 된다.
             </p>
-            <div class="game-button"><h3>게임하러 가기</h3></div>
-            <div class="trpg-button"><h3>TRPG 시나리오 보기</h3></div>
+            <div class="game-button"><a href="#"><h3>게임하러 가기</h3></a></div>
+            <div class="trpg-button"><a href="trpg.html"><h3>TRPG 시나리오 보기</h3></a></div>
         </div>
     </section>
     <section class="main-second">
@@ -48,7 +65,7 @@
                 추억을 되살리며 동네를 돌아다닌다.<br>
                 그러던 중 길을 잃게 되고, '깨비슈퍼'를 발견하게 된다.
             </p>
-            <div class="game-button"><h3>게임하러 가기</h3></div>
+            <div class="game-button"><a href="#"><h3>게임하러 가기</h3></a></div>
         </div>
     </section>
     <section class="main-4th">
@@ -60,7 +77,7 @@
                 익숙한 얼굴의 KPC가 있었다.<br>
                 의아해하는 탐사자에게 KPC는 한 가지 부탁을 해오는데...
             </p>
-            <div class="trpg-button"><h3>TRPG 시나리오 보기</h3></div>
+            <div class="trpg-button"><a href="trpg.html"><h3>TRPG 시나리오 보기</h3></a></div>
         </div>
         <div class="r-blue middle" id="r-5th"></div>
         <div id="c-2"></div>
@@ -68,5 +85,9 @@
     <footer>
         <p>copyright (c) team.dalgona</p>
     </footer>
+    <script>
+        function openNav() {document.getElementById('navigation').style.width = '100%';}
+        function closeNav() {document.getElementById('navigation').style.width = '0%';}
+    </script>
 </body>
 </html>

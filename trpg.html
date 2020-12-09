@@ -5,14 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>깨비슈퍼</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        #trpg-1 p:hover {font-size: 0%;} 
+        #trpg-1 p:hover::before {content: '소프트호러'; font-size: 14px;}
+        #trpg-2 p:hover {font-size: 0%;} 
+        #trpg-2 p:hover::before {content: '롤플레잉 위주'; font-size: 14px;}
+        #trpg-3 p:hover {font-size: 0%;} 
+        #trpg-3 p:hover::before {content: '타이만(1:1)'; font-size: 14px;}
+        #trpg-4 p:hover {font-size: 0%;} 
+        #trpg-4 p:hover::before {content: '약 1-2시간'; font-size: 14px;}
+        #trpg-5 p:hover {font-size: 0%;}
+        #trpg-5 p:hover::before {content: '●●○○○'; font-size: 14px;}
+        #trpg-6 p:hover {font-size: 0%;}
+        #trpg-6 p:hover::before {content: '●●◐○○'; font-size: 14px;}
+        #trpg-7 p:hover {font-size: 0%;}
+        #trpg-7 p:hover::before {content: 'KPC O'; font-size: 14px;}
+
+        body {overflow: hidden;}
+    </style>
 </head>
 <body>
     <!-- 오버레이 네비게이션 자리 -->
+    <div id="navigation" class="overlay">
+        <header>
+            <a href="index.html"><div id="white-logo"></div></a>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav();">
+                <img src="src/nav-x.svg" alt="close navigation" width="28px">
+            </a>
+        </header>
+        <div class="overlay-contents">
+            <a href="about.html"><h2>소개</h2></a>
+            <a href="#"><h2>게임</h2></a>
+            <a href="trpg.html"><h2>TRPG 시나리오</h2></a>
+        </div>
+    </div>
 
     <!-- 메인 페이지 자리 -->
     <header>
-        <a href="test.html"><div id="logo"></div></a>
-        <div class="nav-bar"></div>
+        <a href="index.html"><div id="logo"></div></a>
+        <div class="nav-bar" style="cursor: pointer; font-size: 30px; margin-top: 50px;" onclick="openNav();">
+            <img src="src/nav.svg" alt="navigation" width="32px">
+        </div>
     </header>
     <section class="trpg-layout">
         <div class="trpg-comment">
@@ -36,7 +69,13 @@
                 <div class="h-button b-shadow" id="trpg-7"><p>로스트</p></div>
             </div>
         </div>
-        <div class="trpg-bg" id="trpg-bg"></div>
+        <div class="trpg-bg"><img src="src/tr-bg-market.svg" width="1092px"></div>
+        
     </section>
+
+    <script>
+        function openNav() {document.getElementById('navigation').style.width = '100%';}
+        function closeNav() {document.getElementById('navigation').style.width = '0%';}
+    </script>
 </body>
 </html>

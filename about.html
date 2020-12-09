@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>깨비슈퍼</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        p {margin-top: 28px; margin-bottom: 16px;}
+    </style>
+</head>
+<body>
+    <!-- 오버레이 메뉴 영역 -->
+    <div id="navigation" class="overlay">
+        <header>
+            <a href="index.html"><div id="white-logo"></div></a>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav();">
+                <img src="src/nav-x.svg" alt="close navigation" width="28px">
+            </a>
+        </header>
+        <div class="overlay-contents">
+            <a href="about.html"><h2>소개</h2></a>
+            <a href="#"><h2>게임</h2></a>
+            <a href="trpg.html"><h2>TRPG 시나리오</h2></a>
+        </div>
+    </div>
+
+    <!-- 본문 영역 -->
+    <header>
+        <a href="index.html"><div id="logo"></div></a>
+        <div class="nav-bar" style="cursor: pointer; font-size: 30px; margin-top: 50px;" onclick="openNav();">
+            <img src="src/nav.svg" alt="navigation" width="32px">
+        </div>
+    </header>
+    <section class="about-first">
+        <div class="commentary">
+            <h3>소개</h3>
+            <h2>PROJECT ME.A</h2>
+            <p>프로젝트 미아, 익숙하지만 낯선 곳에서 펼쳐지는 모험 이야기</p>
+            <p>
+            일상의 어느 날, 낯익은 장소를 돌아다니던 아이는 어느 순간 낯선 곳에 도착하게 된다. <br>
+            그곳에서 만나게 되는 신이한 존재, 도깨비. <br>
+            아이는 과연 도깨비와 함께 어떤 모험을 하게 될까? 
+            </p>    
+        </div>
+        <div class="me-a-deco"><img src="src/me-a_deco.svg" width="990px"></div>
+    </section>
+    <section class="about-2nd">
+        <div class="me-a-logo"><img src="src/me-a_logo_deco.svg" width="1302px"></div>
+        <div class="commentary">
+            <h3>로고</h3>
+            <h2>LOGO</h2>
+            <p>
+                이야기의 주인공인 아이의 얼굴과<br>
+                아이와 함께하는 도깨비의 모습을 도깨비불로 표현<br>
+                주변에 구름 형상을 더하여 아이가 길을 잃은 상황임을 강조
+            </p>
+        </div>
+    </section>
+    <section class="about-3rd">
+        <h3>구성</h3>
+        <h2>CONTENT</h2>
+        <p>도깨비와 함께하는 각기 다른 모험들</p>
+        <div class="wrap">
+            <div class="r-shadow"><p>웹게임</p></div>
+            <div class="b-shadow"><p id="db-line">TRPG<br>시나리오</p></div>
+        </div>
+        
+        <p>
+            미니게임들로 구성된 웹게임과 <br>
+            CoC 7판 룰을 바탕으로 한 TRPG 시나리오를 통해 경험하는 <br>
+            일상 속의 신비로운 모험
+        </p>
+    </section>
+    <section class="history">
+        <div class="dot-now"></div>
+        <div class="timeline"></div>
+        <h3>2020-2021 깨비슈퍼</h3>
+        <div id="s-1-market"></div>
+    </section>
+    <footer>
+        <p>copyright (c) team.dalgona</p>
+    </footer>
+
+    <script>
+        function openNav() {document.getElementById('navigation').style.width = '100%';}
+        function closeNav() {document.getElementById('navigation').style.width = '0%';}
+    </script>
+</body>
+</html>
