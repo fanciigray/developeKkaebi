@@ -7,15 +7,36 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- 오버레이 네비게이션 자리 -->
+
+    <!-- 메인 페이지 자리 -->
     <header>
-        <div class="holder">
-            <div class="logo"><a href="index.html"><img src="src/logo.svg" alt="로고" width="60" height="50"></a></div>
-            <a href="#" class="menu-trigger"><span></span><span></span><span></span></a>
-    </div>
+        <a href="test.html"><div id="logo"></div></a>
+        <div class="nav-bar"></div>
     </header>
-    <div class="content">
-        티알피지 페이지
-    </div>
-    <footer class="footer"></footer>
+    <section class="trpg-layout">
+        <div class="trpg-comment">
+            <h3>CoC TRPG 시나리오</h3>
+            <h2>시나리오 제목</h2>
+            <div class="download"><h3>PDF 다운로드</h3><a href="#"><div id="download-icon"></div></a></div>
+            <p>
+                오래간만에 받은 용돈을 들고 군것질하기 위해 슈퍼에 들린 탐사자.<br>
+                즐겁게 군것질거리를 고르고 계산대 앞으로 가니 그곳에는<br>
+                주인 할아버지, 할머니도 아닌 익숙한 얼굴의 KPC가 있었습니다.<br>
+                KPC의 등장에 의아해하는 탐사자에게 KPC는 한가지 부탁을 들어줄 수 있냐며 말을 걸어온다.
+            </p>
+            <div
+             class="button-area">
+                <div class="h-button b-shadow" id="trpg-1"><p>분위기</p></div>
+                <div class="h-button r-shadow" id="trpg-2"><p>유형</p></div>
+                <div class="h-button b-shadow" id="trpg-3"><p>인원</p></div>
+                <div class="h-button r-shadow" id="trpg-4"><p>시간</p></div>
+                <div class="h-button b-shadow" id="trpg-5"><p>PL 난이도</p></div>
+                <div class="h-button r-shadow" id="trpg-6"><p>KP 난이도</p></div>
+                <div class="h-button b-shadow" id="trpg-7"><p>로스트</p></div>
+            </div>
+        </div>
+        <div class="trpg-bg" id="trpg-bg"></div>
+    </section>
 </body>
 </html>
