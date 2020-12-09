@@ -2,8 +2,8 @@
 var bear, cat, cir, hexa, penta, squa, star, tri;
 const numRows = 4
 const numColumns = 4
-var faceUpImages
-var imagesDeck = []
+var faceUpImages = [] ;
+var imagesDeck = [String] ;
 var ghost;
 
 function setup() {
@@ -11,7 +11,7 @@ function setup() {
     background(155);
 
     createTiles();
-    createImagesDeck(faceUpImages);
+    
 
 
 }
@@ -24,25 +24,25 @@ function draw() {
 
 //카드 생성(뒤집은 상태)
 function createTiles() {
+
+    createImagesDeck(faceUpImages);
+    
     for(var i=0; i<numRows; i++) {
         for (var j =0 ; j<numColumns; j++) {
         var back = createSprite(i * 95 + 60, j * 115 + 70);
-        back.addImage(loadImage('../src/background.png'));
+        back.addAnimation('change', '../src/background.png', imagesDeck[i*j]);
+        back.animation.playing = false;
+
+        back.onMousePressed = function() {
+            this.animation.nextFrame();
+         }
         }
     }
     }
 
 function loadFaceUpImages() {
-    faceUpImages = [
-        loadImage('../src/bear.png'),
-        loadImage('../src/cat.png'),
-        loadImage('../src/circle.png'),
-        loadImage('../src/hexagon.png'),
-        loadImage('../src/pentagon.png'),
-        loadImage('../src/square.png'),
-        loadImage('../src/star.png'),
-        loadImage('../src/triangle.png')
-    ]
+    faceUpImages = ['../src/bear.png', '../src/cat.png', '../src/circle.png', '../src/hexagon.png',
+    '../src/pentagon.png', '../src/square.png', '../src/star.png', '../src/triangle.png']
       }
 
 //짝 생성되도록 리스트 생성하기
