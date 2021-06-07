@@ -8,54 +8,59 @@ var gameCiderState = new Phaser.Class({
 
     preload: function() {
         this.load.image('7-bg', 'assets/game-cider/cider-area.png');
-        this.load.spritesheet('7-puzzles', 'assets/game-cider/cider-puzzles.png', {frameWidth: 240, frameHeight: 190});
+        this.load.image('7-cider', 'assets/game-cider/cider.png');
+        this.load.image('7-timer', 'assets/game-cider/timer.png');
+        this.load.spritesheet('7-dust', 'assets/game-cider/dusts.png', {frameWidth: 63, frameHeight: 63});
     },
 
     create: function() {
+        game.scene.sleep('map');
+
         this.isStarted = false;
+        this.initialTime = 30;
 
         gameBG = this.add.image(0, 0, 'game').setOrigin(0, 0); 
         out = this.add.image(902, 60, 'game-out');
         out.setInteractive().on('pointerdown', function() { game.scene.stop('cider'); game.scene.wake('map'); }, this)
 
         this.ciderArea = this.add.image(441, 360, '7-bg');
-        this.ciderPuzzles = this.physics.add.group();
-        
-        this.ciderP1 = this.physics.add.sprite(202, 172, '7-puzzles', this.shuffleArray[0]);
-        this.ciderPuzzles.add(this.ciderP1);
-        this.ciderP2 = this.physics.add.sprite(442, 172, '7-puzzles', this.shuffleArray[1]);
-        this.ciderPuzzles.add(this.ciderP2);
-        this.ciderP3 = this.physics.add.sprite(682, 172, '7-puzzles', this.shuffleArray[2]);
-        this.ciderPuzzles.add(this.ciderP3);
-        this.ciderP4 = this.physics.add.sprite(202, 362, '7-puzzles', this.shuffleArray[3]);
-        this.ciderPuzzles.add(this.ciderP4);
-        this.ciderP5 = this.physics.add.sprite(442, 362, '7-puzzles', this.shuffleArray[4]);
-        this.ciderPuzzles.add(this.ciderP5);
-        this.ciderP6 = this.physics.add.sprite(682, 362, '7-puzzles', this.shuffleArray[5]);
-        this.ciderPuzzles.add(this.ciderP6);
-        this.ciderP7 = this.physics.add.sprite(202, 552, '7-puzzles', this.shuffleArray[6]);
-        this.ciderPuzzles.add(this.ciderP7);
+        this.ciderfigure = this.add.image(441, 360, '7-cider');
+        this.add.image(881, 198, '7-timer');
 
-        this.ciderblack = this.physics.add.sprite(442, 552, '7-puzzles', this.shuffleArray[7]);
+        this.dust1 = this.physics.add.group();
+        for (var i = 0; i < 50; i++) {
+            let dust = this.physics.add.sprite(441 + Phaser.Math.Between(-330, 330), 400 + Phaser.Math.Between(-200, 200), '7-dust', 0);
+            this.dust1.add(dust);
+        }
+        this.dust2 = this.physics.add.group();
+        for (var i = 0; i < 50; i++) {
+            let dust = this.physics.add.sprite(441 + Phaser.Math.Between(-330, 330), 400 + Phaser.Math.Between(-200, 200), '7-dust', 1);
+            this.dust2.add(dust);
+        }
 
-        // 충돌 설정해놓고 충돌하지 않는 방향으로 움직이도록 해야할듯
-        this.physics.add.collider(this.ciderPuzzles, this.ciderblack, this.collideOtherPuzzle, null, this);
-        
-        this.ciderPuzzles.children.iterate(function(child) {
-            let isColliding = child.touching;
+        this.dust1.children.iterate(function(child) {
             child.setInteractive().on('pointerdown', function() {
-                console.log('눌렀다');
-                console.log(isColliding);
-            })
-        });
+                child.disableBody(true, true);
+            }, this)
+        })
+        this.dust2.children.iterate(function(child) {
+            child.setInteractive().on('pointerdown', function() {
+                child.disableBody(true, true);
+            }, this)
+        })
 
         pressToStart = this.add.image(441, 360, 'press-to-start'); 
+
+        this.timer = this.add.text(860, 198, this.initialTime.toString(), {fontFamily: 'Arial', fontSize: 36, color: '#FFFFFF'}).setDepth(100);
 
     },
 
     update: function() {
 
-        if (this.isWon()) {
+        if (this.isGameOver()) {
+            game.scene.stop('cider');
+            game.scene.wake('map');
+        } else if (this.isWon()) {
             Collection.push('cider');
             game.scene.stop('cider');
             game.scene.wake('map');
@@ -65,19 +70,20 @@ var gameCiderState = new Phaser.Class({
 
                 if (cursors.space.isDown) {
                     this.isStarted = true; pressToStart.visible = false;
+                    this.time.addEvent({delay: 1000, callback: function() { this.initialTime -= 1; this.timer.setText(this.initialTime.toString()); }, callbackScope: this, loop: true})
                 }
+            } else {
+
             }
         }
     },
 
-    shuffleArray: [ 3, 2, 0, 6, 1, 7, 4, 5, 8 ],
-
-    isWon: function() {
-
+    isGameOver: function() {
+        return this.initialTime === 0;
     },
 
-    collideOtherPuzzle: function(puzzle, blackpuzzle) {
-
+    isWon: function() {
+        return this.dust1.countActive() + this.dust2.countActive() === 0;
     }
 
 });

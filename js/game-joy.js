@@ -7,47 +7,55 @@ var gameJoyState = new Phaser.Class({
     },
 
     preload: function() {
-        this.load.image('joy-area', 'assets/game-joy/joy-back.png');
+        this.load.image('joy-closet-0', 'assets/game-joy/joy-back.png');
+        this.load.image('joy-closet-1', 'assets/game-joy/joy-back-1.png');
+        this.load.image('joy-closet-2', 'assets/game-joy/joy-back-2.png');
+        this.load.image('joy-closet-3', 'assets/game-joy/joy-back-3.png');
+        this.load.image('joy-timer', 'assets/game-joy/timer.png');
         this.load.spritesheet('joy-cards', 'assets/game-joy/cards.png', { frameWidth: 98, frameHeight: 98 });
 
     },
 
     create: function() {
+        game.scene.sleep('map');
 
         this.isStarted = false;
+        this.initialTime = 30;
 
         gameBG = this.add.image(0, 0, 'game').setOrigin(0, 0); 
         out = this.add.image(902, 60, 'game-out');
         out.setInteractive().on('pointerdown', function() { game.scene.stop('joy'); game.scene.wake('map'); }, this)
 
-        this.area = this.add.image(441, 360, 'joy-area');
-        this.level = [
-            [1, 1, 4, 5, 12, 3],
-            [2, 3, 11, 10, 9, 6],
-            [9, 8, 7, 5, 11, 12],
-            [10, 8, 4, 6, 7, 2]
-        ];
-        now = [];
+        this.area = this.add.image(441, 360, 'joy-closet-0');
+        this.closet1 = this.add.image(441, 360, 'joy-closet-1'); this.closet1.visible = false;
+        this.closet2 = this.add.image(441, 360, 'joy-closet-2'); this.closet2.visible = false;
+        this.closet3 = this.add.image(441, 360, 'joy-closet-3'); this.closet3.visible = false;
+        this.add.image(881, 198, 'joy-timer');
 
-        this.cardsOpen = this.add.group();
-        Cards = this.physics.add.group();
-        for (var i = 0; i < 4; i++) {
-            for (var j = 0; j < 6; j++) {
-                var open = this.physics.add.sprite(165 + (109 * j), 241 + (109 * i), 'joy-cards', this.level[i][j]);
-                this.cardsOpen.add(open);
-                var card = this.physics.add.sprite(165 + (109 * j), 241 + (109 * i), 'joy-cards');
-                Cards.add(card);
-            }
+        this.zone = this.add.zone(325, 382, 286, 258).setRectangleDropZone(286, 258);
+        var graphics = this.add.graphics();
+        graphics.lineStyle(2, 0xffff00);
+        graphics.strokeRect(this.zone.x - this.zone.input.hitArea.width / 2, this.zone.y - this.zone.input.hitArea.height / 2, this.zone.input.hitArea.width, this.zone.input.hitArea.height);
+
+        this.Clothes = this.physics.add.group();
+        for (let i = 0; i < 36; i++) {
+            let clothes = this.physics.add.sprite(710 + Phaser.Math.Between(-40, 40), 420 + Phaser.Math.Between(-130, 130), 'joy-cards', Phaser.Math.Between(1, 12)).setInteractive({ draggable: true });
+            this.Clothes.add(clothes);
         }
 
-        Cards.children.iterate(function(child) {
-            child.setInteractive().on('pointerdown', function() {
-                let COL = (child.y - 241) / 109;
-                let ROW = (child.x - 165) / 109;
-                now.push(ROW, COL);
-                child.disableBody(true, true); 
-            }, this);
+        this.input.on('drag', function(pointer, gameObject, dragX, dragY) {
+            gameObject.x = dragX;
+            gameObject.y = dragY;
         });
+
+        this.input.on('drop', function(pointer, gameObject, dropZone) {
+            gameObject.x = dropZone.x;
+            gameObject.y = dropZone.y;
+            gameObject.input.enabled = false;
+            gameObject.disableBody(true, true);
+        })
+
+        this.timer = this.add.text(860, 198, this.initialTime.toString(), {fontFamily: 'Arial', fontSize: 36, color: '#000000'}).setDepth(100);
 
         pressToStart = this.add.image(441, 360, 'press-to-start'); 
 
@@ -67,25 +75,16 @@ var gameJoyState = new Phaser.Class({
 
                 if (cursors.space.isDown) {
                     this.isStarted = true; pressToStart.visible = false;
+                    this.time.addEvent({delay: 1000, callback: function() { this.initialTime -= 1; this.timer.setText(this.initialTime.toString()); }, callbackScope: this, loop: true})
                 }
             } else {
-                if (now.length === 4) {
-                    console.log(now);
-                    if (!this.checkNow(now)) {
-
-                        var wrongOne = this.physics.add.sprite(165 + (109 * now[0]), 241 + (109 * now[1]), 'joy-cards');
-                        var wrongTwo = this.physics.add.sprite(165 + (109 * now[2]), 241 + (109 * now[3]), 'joy-cards');
-                        Cards.add(wrongOne); Cards.add(wrongTwo);
-                        
-
-                        now.length = 0;
-
-                    } else {
-
-                        now.length = 0;
-
-                    }
                 
+                if (this.Clothes.countActive() == 26) {
+                    this.closet1.visible = true;
+                } else if (this.Clothes.countActive() == 16) {
+                    this.closet2.visible = true;
+                } else if (this.Clothes.countActive() == 6) {
+                    this.closet3.visible = true;
                 }
 
             }
@@ -94,31 +93,12 @@ var gameJoyState = new Phaser.Class({
     },
 
     isGameOver: function() {
-
+        return this.initialTime === 0;
     },
 
     isWon: function() {
-        return Cards.countActive() === 0;
+        return this.Clothes.countActive() === 0;
     },
-
-    checkNow: function(arr) {
-        let oneCol = arr[0];
-        let oneRow = arr[1];
-        let twoCol = arr[2];
-        let twoRow = arr[3];
-        let result;
-
-
-        if (this.level[oneRow][oneCol] === this.level[twoRow][twoCol]) {
-            console.log('맞췄다!');
-            result = true;
-        } else {
-            console.log('틀렸다');
-            result = false; 
-        }
-
-        return result;
-    }
 
 
 });

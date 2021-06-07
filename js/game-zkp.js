@@ -17,6 +17,7 @@ var gameZkpState = new Phaser.Class({
     },
 
     create: function() {
+        game.scene.sleep('map');
 
         this.isStarted = false;
         isRockPressed = false;

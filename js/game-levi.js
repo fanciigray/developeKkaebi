@@ -118,7 +118,7 @@ var gameLeviState = new Phaser.Class({
 
                 if (cursors.space.isDown) {
                     this.isStarted = true; pressToStart.visible = false;
-                    ball.setVelocityY(-200);
+                    ball.setVelocityY(-300);
                 }
             }
 
@@ -147,7 +147,7 @@ var gameLeviState = new Phaser.Class({
         }
     },
 
-    hitPlayer: function(ball, rmc) {
+    hitPlayer: function(ball, player) {
         ball.setVelocityY(ball.body.velocity.y - 5);
 
         let newXVelocity = Math.abs(ball.body.velocity.x) + 5;
