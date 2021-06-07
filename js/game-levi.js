@@ -108,9 +108,9 @@ var gameLeviState = new Phaser.Class({
             rmc.body.setVelocityX(0);
 
             if (cursors.left.isDown) {
-                rmc.body.setVelocityX(-350);
+                rmc.body.setVelocityX(-450);
             } else if (cursors.right.isDown) {
-                rmc.body.setVelocityX(350);
+                rmc.body.setVelocityX(450);
             }
 
             if (!this.isStarted) {
