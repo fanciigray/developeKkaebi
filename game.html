@@ -7,6 +7,30 @@
     <script src="lib/p5.js"></script>
     <script src="lib/p5.play.js"></script>
     <link rel="stylesheet" href="style.css">
+    <style>
+        #my-game {
+            width: 960px;
+            height: 720px;
+            margin-top: 100px;
+            margin-left: 150px;
+        }
+        p { text-align: center; }
+    </style>
+
+    <script src="//cdn.jsdelivr.net/npm/phaser@3.54.0/dist/phaser.js"></script>
+    <script src="/js/globalVariables.js"></script>
+    <script src="/js/preload.js"></script>
+    <script src="/js/map.js"></script>
+    <script src="/js/game-wuwu.js"></script>
+    <script src="/js/game-levi.js"></script>
+    <script src="/js/game-zkp.js"></script>
+    <script src="/js/game-byuri.js"></script>
+    <script src="/js/game-joy.js"></script>
+    <script src="/js/game-cider.js"></script>
+    <script src="/js/game-fish.js"></script>
+    <script src="/js/call-junha.js"></script>
+
+
 </head>
 <body>
     <!-- 오버레이 메뉴 영역 -->
@@ -31,6 +55,31 @@
             <img src="src/nav.svg" alt="navigation" width="32px">
         </div>
     </header>
+
+    <div id="my-game"></div>
+    <script>
+        var config = {
+            type: Phaser.AUTO,
+            width: 960, height: 720, parent: 'my-game',
+            scene: myGame.scenes,
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    gravity: false
+                }
+            },
+            pack: {
+                files: [{
+                    type: 'plugin', 
+                    key: 'rexwebfontloaderplugin',
+                    url: 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexwebfontloaderplugin.min.js',
+                    start: true
+                }]
+            }
+        };
+
+        var game = new Phaser.Game(config);
+    </script>
 
     <script>
         function openNav() {document.getElementById('navigation').style.width = '100%';}
