@@ -15,21 +15,36 @@
             margin-left: 150px;
         }
         p { text-align: center; }
+        @font-face {
+            font-family: 'joyfulStory';
+            src: url('/assets/font/tvN\ 즐거운이야기\ Bold.ttf');
+        }
     </style>
+    <link rel="preload" href="assets/font/tvN 즐거운이야기 Bold.ttf" as="font" type="font/ttf">
 
     <script src="//cdn.jsdelivr.net/npm/phaser@3.54.0/dist/phaser.js"></script>
+    <!-- 글로벌 통제 -->
     <script src="/js/globalVariables.js"></script>
     <script src="/js/preload.js"></script>
-    <script src="/js/map.js"></script>
-    <script src="/js/game-wuwu.js"></script>
-    <script src="/js/game-levi.js"></script>
-    <script src="/js/game-zkp.js"></script>
-    <script src="/js/game-byuri.js"></script>
-    <script src="/js/game-joy.js"></script>
-    <script src="/js/game-cider.js"></script>
-    <script src="/js/game-fish.js"></script>
-    <script src="/js/call-junha.js"></script>
-
+    <!-- 맵 -->
+    <script src="/js/map/call-junha.js"></script>
+    <script src="/js/map/mapBack.js"></script>
+    <script src="/js/map/mapBackFlip.js"></script>
+    <script src="/js/map/mapDisplay1.js"></script>
+    <script src="/js/map/mapDisplay2.js"></script>
+    <script src="/js/map/mapDisplay3.js"></script>
+    <script src="/js/map/mapFront.js"></script>
+    <script src="/js/map/mapFrontFlip.js"></script>
+    <script src="/js/map/mapIcecream.js"></script>
+    <script src="/js/map/mapSideroom.js"></script>
+    <!-- 게임 -->
+    <script src="/js/game/game-byuri.js"></script>
+    <script src="/js/game/game-cider.js"></script>
+    <script src="/js/game/game-fish.js"></script>
+    <script src="/js/game/game-joy.js"></script>
+    <script src="/js/game/game-levi.js"></script>
+    <script src="/js/game/game-wuwu.js"></script>
+    <script src="/js/game/game-zkp.js"></script>
 
 </head>
 <body>
@@ -56,31 +71,27 @@
         </div>
     </header>
 
-    <div id="my-game"></div>
-    <script>
-        var config = {
-            type: Phaser.AUTO,
-            width: 960, height: 720, parent: 'my-game',
-            scene: myGame.scenes,
-            physics: {
-                default: 'arcade',
-                arcade: {
-                    gravity: false
+    <section class="game">
+        <div id="my-game"></div>
+        <script>
+            var config = {
+                type: Phaser.AUTO,
+                width: 960, height: 720, parent: 'my-game',
+                scene: myGame.scenes,
+                physics: {
+                    default: 'arcade',
+                    arcade: {
+                        gravity: false
+                    }
                 }
-            },
-            pack: {
-                files: [{
-                    type: 'plugin', 
-                    key: 'rexwebfontloaderplugin',
-                    url: 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexwebfontloaderplugin.min.js',
-                    start: true
-                }]
-            }
-        };
-
-        var game = new Phaser.Game(config);
-    </script>
-
+            };
+    
+            var game = new Phaser.Game(config);
+        </script>
+    </div>
+    <footer>
+        <p>copyright (c) team.me-a</p>
+    </footer>
     <script>
         function openNav() {document.getElementById('navigation').style.width = '100%';}
         function closeNav() {document.getElementById('navigation').style.width = '0%';}
