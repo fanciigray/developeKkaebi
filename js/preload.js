@@ -19,11 +19,6 @@ var preloadState = new Phaser.Class({
             '0 %',
             {fontFamily: 'joyfulStory', fontSize: 20, color: '#2b2b2b'}
         );
-        // var loadingtxt = this.add.text(
-        //     430, 360 - 80,
-        //     '로딩 중...',
-        //     {fontFamily: 'joyfulStory', fontSize: 36, color: '#ffffff'}
-        // );
 
         progressbox.fillStyle(0x2b2b2b, 1);
         progressbox.fillRect(320, 335, 320, 50);
@@ -40,7 +35,6 @@ var preloadState = new Phaser.Class({
             progressbox.destroy();
             progressbar.destroy();
             percentagetxt.destroy();
-            // loadingtxt.destroy();
         });
 
         // 배경
@@ -292,6 +286,7 @@ var preloadState = new Phaser.Class({
         this.load.image('scene-junha', 'assets/cuts/scene-junha.png');
         this.load.image('end-mom', 'assets/cuts/ending-mom.png');
         this.load.image('end-cop', 'assets/cuts/ending-cop.png');
+        this.load.image('end-collectcall', 'assets/cuts/ending-collectcall.png');
 
     },
 

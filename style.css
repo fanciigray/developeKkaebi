@@ -68,7 +68,7 @@
 }
 .overlay-contents {position: relative; width: 1312px;}
 .overlay a:hover, a:focus {color: #bf452d;}
-.overlay a {text-decoration: none; font-size: 72px; color: #f8f0de; display: block; transition: 0.3s;}
+.overlay a {text-decoration: none; font-size: 72px; color: #f8f0de; display: block; transition: 0.3s; }
 .overlay .closebtn {margin-top: 40px; right: 45px; font-size: 60px;}
 .nav-bar {margin-top: 45px;}
 

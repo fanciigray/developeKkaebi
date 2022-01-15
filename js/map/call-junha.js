@@ -77,20 +77,23 @@ var gameCallState = new Phaser.Class({
             } else if (this.numberText.text == '112'){
                 call.play(); BGM_MAP.stop(); 
                 game.scene.stop('call'); game.scene.start('callCop');
-            } 
+            } else if (this.numberText.text == '1541') {
+                call.play(); BGM_MAP.stop();
+            }
             else { this.toCall.length = 0; }
         }, this);
 
 
-        this.numberText = this.add.text(430, 50, '', {fontFamily: 'Arial', fontSize: 72, color: '#593C60'})
-
-        
+        this.numberText = this.add.text(430, 50, '', {fontFamily: 'joyfulStory', fontSize: 72, color: '#593C60'})
 
     }, 
 
     update: function() {
 
         this.numberText.setText(this.callNumber(this.toCall));
+        if (this.numberText.text == '15410163347288#') {
+            game.scene.stop('call'); game.scene.start('callCollectcall');
+        } 
 
     },
 
@@ -154,3 +157,28 @@ var callCop = new Phaser.Class({
     }
 });
 myGame.scenes.push(callCop);
+
+var callCollectcall = new Phaser.Class({
+    Extends: Phaser.Scene,
+    initialize:
+    function GamePlay() {
+        Phaser.Scene.call(this, {key: 'callCollectcall'});
+    },
+    create: function() {
+        endCollectcall = this.add.image(480, 360, 'end-collectcall'); endCollectcall.alpha = 0;
+        this.time.addEvent({
+            delay: 10000,
+            callback: function() { 
+                BGM_END.play();
+                this.tweens.add({targets: endCollectcall, alpha: 1, ease: 'Cubic', duration: 1000}); 
+            },
+            callbackScope: this,
+            loop: false
+        });
+
+    },
+    update: function() {
+
+    }
+});
+myGame.scenes.push(callCollectcall);
