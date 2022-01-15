@@ -278,6 +278,7 @@ var preloadState = new Phaser.Class({
         this.load.audio('levi-pop', 'assets/bgm/effect/levi-poping sound.mp3');
         this.load.audio('phone-bbip', 'assets/bgm/effect/phone-bbip.mp3');
         this.load.audio('call', 'assets/bgm/effect/call.mp3');
+        this.load.audio('call-without', 'assets/bgm/effect/call-without.mp3');
         this.load.audio('wuwu-happy', 'assets/bgm/effect/wuwu-happy-pop.mp3');
         this.load.audio('wuwu-sad', 'assets/bgm/effect/wuwu-sad-pop.mp3');
         this.load.audio('zkp-win', 'assets/bgm/effect/zkp-win.wav');
