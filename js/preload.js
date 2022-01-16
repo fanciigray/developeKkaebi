@@ -222,6 +222,10 @@ var preloadState = new Phaser.Class({
         this.load.image('t-arrow', 'assets/main-ui/t-arrow.png');
         this.load.image('number', 'assets/main-ui/number-get-test.png');
         this.load.spritesheet('count', 'assets/main-ui/number-get-count.png', {frameWidth: 14, frameHeight: 20});
+        // 시작페이지 버튼
+        this.load.image('game-start', 'assets/main-ui/btn-start.png');
+        this.load.image('game-how', 'assets/main-ui/btn-howto.png');
+        this.load.spritesheet('howToPlay', 'assets/main-ui/opening-talk-how.png', {frameWidth: 960, frameHeight: 720});
 
 
         // 미니게임 배경
@@ -288,6 +292,7 @@ var preloadState = new Phaser.Class({
         this.load.image('end-mom', 'assets/cuts/ending-mom.png');
         this.load.image('end-cop', 'assets/cuts/ending-cop.png');
         this.load.image('end-collectcall', 'assets/cuts/ending-collectcall.png');
+        this.load.image('start', 'assets/cuts/opening.png');
 
     },
 
@@ -396,6 +401,13 @@ var preloadState = new Phaser.Class({
             hideOnComplete: true
         });
 
+        this.anims.create({
+            key: 'talk-how',
+            frames: [{ key: 'howToPlay', frame: 0 }],
+            frameRate: 1,
+            hideOnComplete: true
+        });
+
         // 입력 이벤트
         cursors = this.input.keyboard.createCursorKeys();
 
@@ -416,15 +428,13 @@ var preloadState = new Phaser.Class({
         EFFECT_GAMEOVER = this.sound.add('gameover', { loop: false });
         EFFECT_GETITEM = this.sound.add('getitem', { loop: false });
 
-        BGM_MAP.play();
-
         // 로딩 로고
         this.add.image(480, 360, 'logo');
 
         // 게임 시작하기
         this.time.addEvent({
             delay: 1000,
-            callback: function() { game.scene.start('1000'); },
+            callback: function() { game.scene.start('start'); },
             callbackScope: this,
             loop: false
         });
