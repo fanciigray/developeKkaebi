@@ -225,7 +225,7 @@ var preloadState = new Phaser.Class({
         // 시작페이지 버튼
         this.load.image('game-start', 'assets/main-ui/btn-start.png');
         this.load.image('game-how', 'assets/main-ui/btn-howto.png');
-        this.load.spritesheet('howToPlay', 'assets/main-ui/opening-talk-how.png', {frameWidth: 960, frameHeight: 720});
+        this.load.image('howToPlay', 'assets/main-ui/opening-talk-how.png');
 
 
         // 미니게임 배경
