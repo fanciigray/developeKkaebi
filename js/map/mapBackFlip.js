@@ -14,6 +14,8 @@ var mapBackFlip = new Phaser.Class({
         FROM_FRONT_OR_BACK = 9000;
 
         this.backFlipBg = this.add.image(0, 0, 'back-2').setOrigin(0, 0);
+        this.backFlipBgNoBtn = this.add.image(0, 0, 'back-2-nobtn').setOrigin(0, 0); this.backFlipBgNoBtn.visible = false;
+        if (Collection.includes('number-5')) { this.backFlipBgNoBtn.visible = true; }
 
         this.flip = this.add.image(912, 146, 'flip-btn').setDepth(100);
         this.flip.setInteractive().on('pointerdown', function() { 

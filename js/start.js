@@ -15,11 +15,21 @@ var startGame = new Phaser.Class({
         btnHow = this.add.image(700, 600, 'game-how');
 
         btnStart.setInteractive().on('pointerdown', function() {
-            BGM_MAP.play();
-            game.scene.stop('start'); game.scene.start('1000');
+            btnHow.visible = false; btnStart.visible = false;
+            EFFECT_GAMESTART.play(); BGM_OPENING.stop(); BGM_MAP.play();
+            this.time.addEvent({
+                delay: 3000,
+                callback: function() {
+                    game.scene.stop('start'); game.scene.start('1000'); 
+                },
+                callbackScope: this,
+                loop: false
+            })
+            
         }, this);
         btnHow.setInteractive().on('pointerdown', function() {
             this.how = this.add.sprite(480, 360, 'howToPlay');
+            EFFECT_HOWTOPLAY_BTN.play();
         }, this);
         btnHow.setInteractive().on('pointerup', function() {
             this.how.visible = false;

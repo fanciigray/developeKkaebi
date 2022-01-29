@@ -42,7 +42,7 @@ var gameZkpState = new Phaser.Class({
         this.rockButton = this.add.sprite(194, 624, 'player-rsp', 0);
         this.rockButton.setInteractive()
             .on('pointerdown', function() {
-                this.rockButton.setFrame(1); isRockPressed = true;
+                if (!pressToStart.visible) { this.rockButton.setFrame(1); isRockPressed = true; }
             }, this)
             .on('pointerup', function() {
                 this.rockButton.setFrame(0); 
@@ -50,7 +50,7 @@ var gameZkpState = new Phaser.Class({
         this.scissorButton = this.add.sprite(480, 624, 'player-rsp', 2);
         this.scissorButton.setInteractive()
             .on('pointerdown', function() {
-                this.scissorButton.setFrame(3); isScissorPressed = true;
+                if (!pressToStart.visible) { this.scissorButton.setFrame(3); isScissorPressed = true; }
             }, this)
             .on('pointerup', function() {
                 this.scissorButton.setFrame(2); 
@@ -58,7 +58,7 @@ var gameZkpState = new Phaser.Class({
         this.paperButton = this.add.sprite(766, 624, 'player-rsp', 4);
         this.paperButton.setInteractive()
             .on('pointerdown', function() {
-                this.paperButton.setFrame(5); isPaperPressed = true;
+                if (!pressToStart.visible) { this.paperButton.setFrame(5); isPaperPressed = true; }
             }, this)
             .on('pointerup', function() {
                 this.paperButton.setFrame(4); 

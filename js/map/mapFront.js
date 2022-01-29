@@ -14,6 +14,8 @@ var mapFront = new Phaser.Class({
     create: function() {
                 
         this.frontbg = this.add.image(0, 0, 'front-1').setOrigin(0, 0);
+        this.frontbgNoBtn = this.add.image(0, 0, 'front-1-nobtn').setOrigin(0, 0); this.frontbgNoBtn.visible = false;
+        if (Collection.includes('number-5')) { this.frontbgNoBtn.visible = true; }
         
         this.flip = this.add.image(912, 146, 'flip-btn').setDepth(100);
         this.flip.setInteractive().on('pointerdown', function() { 

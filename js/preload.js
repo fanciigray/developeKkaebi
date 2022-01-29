@@ -39,6 +39,7 @@ var preloadState = new Phaser.Class({
 
         // 배경
         this.load.image('front-1', 'assets/map/front-1.png');
+        this.load.image('front-1-nobtn', 'assets/map/front-1(button-x).png');
         this.load.image('f1-gc', 'assets/map/front-1-gc.png');
         this.load.image('f1-phone', 'assets/map/front-1-phone.png');
 
@@ -212,6 +213,7 @@ var preloadState = new Phaser.Class({
         this.load.image('b1-st59', 'assets/map/back-1-stationary-59.png');
         
         this.load.image('back-2', 'assets/map/back-2.png');
+        this.load.image('back-2-nobtn', 'assets/map/back-2(button-x).png');
 
         // 버튼
         this.load.image('r-arrow', 'assets/main-ui/right-arrow.png');
@@ -267,13 +269,18 @@ var preloadState = new Phaser.Class({
         this.load.audio('bgm-levi', 'assets/bgm/levi.wav');
         this.load.audio('bgm-end', 'assets/bgm/ending.mp3');
         this.load.audio('bgm-cider', 'assets/bgm/cider.mp3');
+        this.load.audio('bgm-start', 'assets/bgm/start.mp3');
 
         // 이펙트 사운드
         this.load.audio('boom-sound', 'assets/bgm/effect/boom sound.mp3');
+        this.load.audio('effect-howToPlay', 'assets/bgm/effect/how-to-play.wav');
+        this.load.audio('effect-start', 'assets/bgm/effect/open-door-start.mp3');
+        this.load.audio('effect-collectCallSound', 'assets/bgm/effect/end-collectcall-notice.mp3');
         this.load.audio('ministart', 'assets/bgm/effect/game-start.mp3');
         this.load.audio('clear', 'assets/bgm/effect/game-clear.wav');
         this.load.audio('gameover', 'assets/bgm/effect/game-over.mp3');
         this.load.audio('getitem', 'assets/bgm/effect/get-item.mp3');
+        this.load.audio('hint', 'assets/bgm/effect/hint.mp3');
         this.load.audio('cider-pop','assets/bgm/effect/cider-pop.wav');
         this.load.audio('byuri-correct', 'assets/bgm/effect/byuri-correct.mp3');
         this.load.audio('byuri-no', 'assets/bgm/effect/byuri-no.mp3');
@@ -282,7 +289,6 @@ var preloadState = new Phaser.Class({
         this.load.audio('levi-pop', 'assets/bgm/effect/levi-poping sound.mp3');
         this.load.audio('phone-bbip', 'assets/bgm/effect/phone-bbip.mp3');
         this.load.audio('call', 'assets/bgm/effect/call.mp3');
-        this.load.audio('call-without', 'assets/bgm/effect/call-without.mp3');
         this.load.audio('wuwu-happy', 'assets/bgm/effect/wuwu-happy-pop.mp3');
         this.load.audio('wuwu-sad', 'assets/bgm/effect/wuwu-sad-pop.mp3');
         this.load.audio('zkp-win', 'assets/bgm/effect/zkp-win.wav');
@@ -412,6 +418,7 @@ var preloadState = new Phaser.Class({
         cursors = this.input.keyboard.createCursorKeys();
 
         // 배경음악
+        BGM_OPENING = this.sound.add('bgm-start', { loop: true, volume: 0.5 });
         BGM_MAP = this.sound.add('bgm-map', { loop: true, volume: 0.5 }); 
         BGM_END = this.sound.add('bgm-end', { loop: true, volume: 0.5 });
         BGM_ZKP = this.sound.add('bgm-zkp', { loop: true, volume: 0.5 });
@@ -422,12 +429,18 @@ var preloadState = new Phaser.Class({
         BGM_CIDER = this.sound.add('bgm-cider', { loop: true, volume: 0.5 });
 
         // 이펙트
+        EFFECT_GAMESTART = this.sound.add('effect-start', { loop: false });
+        EFFECT_HOWTOPLAY_BTN = this.sound.add('effect-howToPlay', { loop: false });
         EFFECT_BOOM = this.sound.add('boom-sound', { loop: false });
         EFFECT_START = this.sound.add('ministart', { loop: false });
         EFFECT_CLEAR = this.sound.add('clear', { loop: false });
         EFFECT_GAMEOVER = this.sound.add('gameover', { loop: false });
         EFFECT_GETITEM = this.sound.add('getitem', { loop: false });
+        EFFECT_HINT = this.sound.add('hint', { loop: false });
 
+        // 오프닝 브금 틀기
+        BGM_OPENING.play();
+        
         // 로딩 로고
         this.add.image(480, 360, 'logo');
 
