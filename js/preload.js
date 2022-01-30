@@ -299,6 +299,7 @@ var preloadState = new Phaser.Class({
         this.load.image('end-cop', 'assets/cuts/ending-cop.png');
         this.load.image('end-collectcall', 'assets/cuts/ending-collectcall.png');
         this.load.image('start', 'assets/cuts/opening.png');
+        this.load.image('start-close', 'assets/cuts/opening-before.png');
 
     },
 
@@ -377,8 +378,8 @@ var preloadState = new Phaser.Class({
             hideOnComplete: true
         });
 
-        this.anims.create({ key: 'wuwu-1', frames: this.anims.generateFrameNumbers('wuwu', {start: 0, end: 11}), frameRate: 5 });
-        this.anims.create({ key: 'wuwu-2', frames: this.anims.generateFrameNumbers('wuwu', {start: 0, end: 15}), frameRate: 5 });
+        this.anims.create({ key: 'wuwu-1', frames: this.anims.generateFrameNumbers('wuwu', {start: 0, end: 15}), frameRate: 5 });
+        this.anims.create({ key: 'wuwu-2', frames: this.anims.generateFrameNumbers('wuwu', {start: 16, end: 20}), frameRate: 5 });
         this.anims.create({ 
             key: 'talk-w', 
             frames: this.anims.generateFrameNumbers('talk-wuwu', {start: 0, end: 2}), 

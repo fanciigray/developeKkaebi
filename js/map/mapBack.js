@@ -22,35 +22,20 @@ var mapBack = new Phaser.Class({
         numberCount = this.add.sprite(898, 77, 'count').setDepth(100);
 
         this.drink11 = this.add.image(100, 265, 'b1-d11');
-        this.drink11.setInteractive().on('pointerdown', function() { LIKE_IT = true; }, this);
         this.drink12 = this.add.image(220, 265, 'b1-d12');
-        this.drink12.setInteractive().on('pointerdown', function() { LIKE_IT = true; }, this);
         this.drink21 = this.add.image(100, 380, 'b1-d21');
-        this.drink21.setInteractive().on('pointerdown', function() { LIKE_IT = true; }, this);
         this.drink22 = this.add.image(220, 380, 'b1-d22');
-        this.drink22.setInteractive().on('pointerdown', function() { DISLIKE_IT = true; }, this);
         this.drink31 = this.add.image(140, 475, 'b1-d31');
-        this.drink31.setInteractive().on('pointerdown', function() { LIKE_IT = true; }, this);
         this.drink32 = this.add.image(260, 475, 'b1-d32');
-        this.drink32.setInteractive().on('pointerdown', function() { DISLIKE_IT = true; }, this);
         this.drink_10 = this.add.image(445, 345, 'b1-dd1');
-        this.drink_10.setInteractive().on('pointerdown', function() { LIKE_IT = true; }, this);
         this.drink_20 = this.add.image(445, 412, 'b1-dd2');
-        this.drink_20.setInteractive().on('pointerdown', function() { LIKE_IT = true; }, this);
         this.drink_30 = this.add.image(445, 490, 'b1-dd3');
-        this.drink_30.setInteractive().on('pointerdown', function() { LIKE_IT = true; }, this);
         this.drink__11 = this.add.image(600, 345, 'b1-ddd11');
-        this.drink__11.setInteractive().on('pointerdown', function() { LIKE_IT = true; }, this);
         this.drink__12 = this.add.image(660, 345, 'b1-ddd12');
-        this.drink__12.setInteractive().on('pointerdown', function() { DISLIKE_IT = true; }, this);
         this.drnik__13 = this.add.image(710, 345, 'b1-ddd13');
-        this.drnik__13.setInteractive().on('pointerdown', function() { LIKE_IT = true; }, this);
         this.drink__21 = this.add.image(605, 412, 'b1-ddd21');
-        this.drink__21.setInteractive().on('pointerdown', function() { DISLIKE_IT = true; }, this);
         this.drink__22 = this.add.image(690, 412, 'b1-ddd22');
-        this.drink__22.setInteractive().on('pointerdown', function() { LIKE_IT = true; }, this);
         this.drink__30 = this.add.image(655, 490, 'b1-ddd30');
-        this.drink_30.setInteractive().on('pointerdown', function() { DISLIKE_IT = true; }, this);
         this.st11 = this.add.image(910, 55, 'b1-st11');
         this.st11.setInteractive().on('pointerdown', function() { DISLIKE_IT = true; }, this);
         this.st12 = this.add.image(1120, 55, 'b1-st12');
@@ -63,18 +48,13 @@ var mapBack = new Phaser.Class({
         this.st25 = this.add.image(1550, 180, 'b1-st25');
         this.st32 = this.add.image(880, 295, 'b1-st32');
         this.st33 = this.add.image(1000, 295, 'b1-st33');
-        this.st33.setInteractive().on('pointerdown', function() { LIKE_IT = true; }, this);
         this.st34 = this.add.image(1120, 290, 'b1-st34');
-        this.st34.setInteractive().on('pointerdown', function() { LIKE_IT = true; }, this);
         this.st35 = this.add.image(1240, 290, 'b1-st35');
-        this.st35.setInteractive().on('pointerdown', function() { LIKE_IT = true; }, this);
         this.st36 = this.add.image(1350, 295, 'b1-st36');
         this.st37 = this.add.image(1430, 295, 'b1-st37');
         this.st38 = this.add.image(1540, 285, 'b1-st38');     
         this.st41 = this.add.image(870, 410, 'b1-st41');
-        this.st41.setInteractive().on('pointerdown', function() { LIKE_IT = true; }, this);
         this.st31 = this.add.image(825, 330, 'b1-st31');
-        this.st31.setInteractive().on('pointerdown', function() { LIKE_IT = true; }, this);
         this.st42 = this.add.image(970, 410, 'b1-st42');
         this.st43 = this.add.image(1080, 410, 'b1-st43');
         this.st44 = this.add.image(1180, 410, 'b1-st44');
@@ -83,7 +63,6 @@ var mapBack = new Phaser.Class({
         this.st51 = this.add.image(850, 505, 'b1-st51');
         this.st52 = this.add.image(910, 505, 'b1-st52');
         this.st53 = this.add.image(970, 505, 'b1-st53');
-        this.st53.setInteractive().on('pointerdown', function() { LIKE_IT = true; }, this);
         this.st54 = this.add.image(1060, 495, 'b1-st54');
         this.st55 = this.add.image(1160, 495, 'b1-st55');
         this.st56 = this.add.image(1260, 495, 'b1-st56');
@@ -167,8 +146,8 @@ var mapBack = new Phaser.Class({
             else { CHILSUNG.anims.play('cider-1', true); }
         }
         if (WUWU.visible) { 
-            if (!Collection.includes('wuwu')) { WUWU.anims.play('wuwu-2', true); }
-            else { WUWU.anims.play('wuwu-1', true); }
+            if (!Collection.includes('wuwu')) { WUWU.anims.play('wuwu-1', true); }
+            else { WUWU.anims.play('wuwu-2', true); }
         }
     }
 });
