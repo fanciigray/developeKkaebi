@@ -121,18 +121,34 @@ var callMom = new Phaser.Class({
     },
     create: function() {
         endMom = this.add.image(480, 360, 'end-mom'); endMom.alpha = 0;
+        credit = this.add.text(600, 1500, 
+            "기획\nTEAM ME.A\n뛰뛰, 밤톨, 용요\n\n\n그림/디자인\n배경/캐릭터/컷씬: 용요\n미니게임: 밤톨, 용요\nUI/UX 디자인: 밤톨, 뛰뛰\n\n\n음악\n배경음악\nhttp://pixabay.com/\nhttp://opengameart.org/\n\n효과음\nhttp://freesfx.co.uk/\nhttp://pixabay.com/\nhttp://opengameart.org/\n\n\n제작기간\n2020년 2월부터 2022년 1월까지\n\n\n",
+            { fontFamily: 'joyfulStory', fontSize: 24}); 
+        thx = this.add.text(600, 2300, "플레이해주셔서 감사합니다", {fontFamily: 'joyfulStory', fontSize: 24});
+        credit.alpha = 0; thx.alpha = 0;
         this.time.addEvent({
             delay: 16000,
             callback: function() { 
                 BGM_END.play();
-                this.tweens.add({targets: endMom, alpha: 1, ease: 'Cubic', duration: 1000}); 
+                this.tweens.add({targets: endMom, alpha: 1, ease: 'Cubic', duration: 1000});
+                this.tweens.add({targets: credit, alpha: 1, ease: 'Cubic', duration: 1000}); 
+                this.tweens.add({targets: thx, alpha: 1, ease: 'Cubic', duration: 1000}); 
             },
             callbackScope: this,
             loop: false
         });
     },
     update: function() {
-
+        this.time.addEvent({
+            delay: 1000,
+            callback: function() {
+                credit.y -= 1; 
+                if (thx.y != 360) { thx.y -= 1;}
+                else { thx.y = 360; }
+            },
+            callbackScope: this,
+            loop: false
+        });
     }
 });
 myGame.scenes.push(callMom);
@@ -145,11 +161,18 @@ var callCop = new Phaser.Class({
     },
     create: function() {
         endCop = this.add.image(480, 360, 'end-cop'); endCop.alpha = 0;
+        credit = this.add.text(600, 1500, 
+            "기획\nTEAM ME.A\n뛰뛰, 밤톨, 용요\n\n\n그림/디자인\n배경/캐릭터/컷씬: 용요\n미니게임: 밤톨, 용요\nUI/UX 디자인: 밤톨, 뛰뛰\n\n\n음악\n배경음악\nhttp://pixabay.com/\nhttp://opengameart.org/\n\n효과음\nhttp://freesfx.co.uk/\nhttp://pixabay.com/\nhttp://opengameart.org/\n\n\n제작기간\n2020년 2월부터 2022년 1월까지\n\n\n",
+            { fontFamily: 'joyfulStory', fontSize: 24}); 
+        thx = this.add.text(600, 2300, "플레이해주셔서 감사합니다", {fontFamily: 'joyfulStory', fontSize: 24});
+        credit.alpha = 0; thx.alpha = 0;
         this.time.addEvent({
             delay: 16000,
             callback: function() { 
                 BGM_END.play();
                 this.tweens.add({targets: endCop, alpha: 1, ease: 'Cubic', duration: 1000}); 
+                this.tweens.add({targets: credit, alpha: 1, ease: 'Cubic', duration: 1000}); 
+                this.tweens.add({targets: thx, alpha: 1, ease: 'Cubic', duration: 1000}); 
             },
             callbackScope: this,
             loop: false
@@ -157,7 +180,16 @@ var callCop = new Phaser.Class({
 
     },
     update: function() {
-
+        this.time.addEvent({
+            delay: 1000,
+            callback: function() {
+                credit.y -= 1; 
+                if (thx.y != 360) { thx.y -= 1;}
+                else { thx.y = 360; }
+            },
+            callbackScope: this,
+            loop: false
+        });
     }
 });
 myGame.scenes.push(callCop);
@@ -170,11 +202,18 @@ var callCollectcall = new Phaser.Class({
     },
     create: function() {
         endCollectcall = this.add.image(480, 360, 'end-collectcall'); endCollectcall.alpha = 0;
+        credit = this.add.text(600, 1500, 
+            "기획\nTEAM ME.A\n뛰뛰, 밤톨, 용요\n\n\n그림/디자인\n배경/캐릭터/컷씬: 용요\n미니게임: 밤톨, 용요\nUI/UX 디자인: 밤톨, 뛰뛰\n\n\n음악\n배경음악\nhttp://pixabay.com/\nhttp://opengameart.org/\n\n효과음\nhttp://freesfx.co.uk/\nhttp://pixabay.com/\nhttp://opengameart.org/\n\n\n제작기간\n2020년 2월부터 2022년 1월까지\n\n\n",
+            { fontFamily: 'joyfulStory', fontSize: 24}); 
+        thx = this.add.text(600, 2300, "플레이해주셔서 감사합니다", {fontFamily: 'joyfulStory', fontSize: 24});
+        credit.alpha = 0; thx.alpha = 0;
         this.time.addEvent({
             delay: 16000,
             callback: function() { 
                 BGM_END.play();
                 this.tweens.add({targets: endCollectcall, alpha: 1, ease: 'Cubic', duration: 1000}); 
+                this.tweens.add({targets: credit, alpha: 1, ease: 'Cubic', duration: 1000}); 
+                this.tweens.add({targets: thx, alpha: 1, ease: 'Cubic', duration: 1000}); 
             },
             callbackScope: this,
             loop: false
@@ -182,7 +221,16 @@ var callCollectcall = new Phaser.Class({
 
     },
     update: function() {
-
+        this.time.addEvent({
+            delay: 1000,
+            callback: function() {
+                credit.y -= 1; 
+                if (thx.y != 360) { thx.y -= 1;}
+                else { thx.y = 360; }
+            },
+            callbackScope: this,
+            loop: false
+        });
     }
 });
 myGame.scenes.push(callCollectcall);
