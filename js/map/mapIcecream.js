@@ -40,10 +40,10 @@ var mapIcecream = new Phaser.Class({
 
         BYURI = this.add.sprite(338, 500, 'byuri'); BYURI.visible = false;
         BYURI.setInteractive().on('pointerdown', function() { 
-            // if (!Collection.includes('byuri')) {
+            if (!Collection.includes('byuri')) {
                 BGM_MAP.pause(); BGM_BYURI.play(); EFFECT_START.play();
                 game.scene.sleep('4000'); game.scene.start('byuri'); 
-            // }
+            }
         }, this);
 
         player = this.add.sprite(200, 523, 'player');

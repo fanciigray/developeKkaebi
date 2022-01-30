@@ -22,9 +22,6 @@ var MET_JUNHA;
 var player, main, cursors, numberNow, numberCount, posBefore;
 var sceneBefore = 1000;
 
-var endingCredit;
-endingCredit = "기획\nTEAM ME.A\n뛰뛰, 밤톨, 용요\n\n\n그림/디자인\n배경/캐릭터/컷씬: 용요\n미니게임: 밤톨, 용요\nUI/UX 디자인: 밤톨, 뛰뛰\n\n\n음악\n배경음악\nhttp://pixabay.com/\nhttp://opengameart.org/\n\n효과음\nhttp://freesfx.co.uk/\nhttp://pixabay.com/\nhttp://opengameart.org/\n\n\n제작기간\n2020년 2월부터 2022년 1월까지\n\n\n플레이해주셔서 감사합니다"
-
 function playerMove() {
 if (cursors.right.isDown) { 
     LIKE_IT = false; DISLIKE_IT = false;
