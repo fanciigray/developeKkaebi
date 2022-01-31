@@ -23,8 +23,10 @@ var mapIcecream = new Phaser.Class({
                 BYURI.visible = true;
                 this.BOOM_BYURI = this.add.sprite(BYURI.x, BYURI.y, 'boom'); 
                 this.BOOM_BYURI.anims.play('boom', true); EFFECT_BOOM.play();
-                this.TALK_BYURI = this.add.sprite(BYURI.x + 170, BYURI.y - 180, 'talk-byuri');
-                this.TALK_BYURI.anims.play('talk-b', true);
+                if (!Collection.includes('byuri')) {
+                    this.TALK_BYURI = this.add.sprite(BYURI.x + 170, BYURI.y - 180, 'talk-byuri');
+                    this.TALK_BYURI.anims.play('talk-b', true);
+                }
             } else {
                 LIKE_IT = true;
             }

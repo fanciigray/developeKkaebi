@@ -65,8 +65,10 @@ var mapDisplay3 = new Phaser.Class({
                 this.dressup.visible = false;
                 JOY.visible = true; EFFECT_BOOM.play();
                 this.BOOM_JOY = this.add.sprite(JOY.x, JOY.y, 'boom'); this.BOOM_JOY.anims.play('boom', true);
-                this.TALK_JOY = this.add.sprite(JOY.x + 130, JOY.y - 200, 'talk-joy');
-                this.TALK_JOY.anims.play('talk-jo', true);
+                if (!Collection.includes('joy')) {
+                    this.TALK_JOY = this.add.sprite(JOY.x + 130, JOY.y - 200, 'talk-joy');
+                    this.TALK_JOY.anims.play('talk-jo', true);
+                }
             } else {
                 LIKE_IT = true;
             }

@@ -41,8 +41,10 @@ var mapSideroom = new Phaser.Class({
                     RIMO.visible = true;
                     this.BOOM_RIMO = this.add.sprite(RIMO.x, RIMO.y, 'boom'); 
                     this.BOOM_RIMO.anims.play('boom', true); EFFECT_BOOM.play();
-                    this.TALK_RIMO = this.add.sprite(RIMO.x + 150, RIMO.y - 210, 'talk-rimo');
-                    this.TALK_RIMO.anims.play('talk-r', true);
+                    if (!Collection.includes('levi-rimo')) {
+                        this.TALK_RIMO = this.add.sprite(RIMO.x + 150, RIMO.y - 210, 'talk-rimo');
+                        this.TALK_RIMO.anims.play('talk-r', true);
+                    }
                 }
                 else {
                     this.TALK_BEFORE_BATTERY = this.add.sprite(this.rmc.x + 60, this.rmc.y - 80, 'talk-rimo');

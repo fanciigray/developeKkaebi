@@ -91,8 +91,10 @@ var mapBack = new Phaser.Class({
                 CHILSUNG.visible = true;
                 this.BOOM_CHILSUNG = this.add.sprite(CHILSUNG.x, CHILSUNG.y, 'boom'); 
                 this.BOOM_CHILSUNG.anims.play('boom', true); EFFECT_BOOM.play();
-                this.TALK_CHILSUNG = this.add.sprite(CHILSUNG.x + 130, CHILSUNG.y - 250, 'talk-cider');
-                this.TALK_CHILSUNG.anims.play('talk-c', true);
+                if (!Collection.includes('cider')) {
+                    this.TALK_CHILSUNG = this.add.sprite(CHILSUNG.x + 130, CHILSUNG.y - 250, 'talk-cider');
+                    this.TALK_CHILSUNG.anims.play('talk-c', true);
+                }
             } else {
                 LIKE_IT = true;
             }
