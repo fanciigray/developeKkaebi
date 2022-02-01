@@ -18,6 +18,7 @@ var gameLeviState = new Phaser.Class({
 
         leviBlock = this.sound.add('levi-block', { loop: false });
         leviRimo = this.sound.add('levi-pop', { loop: false });
+        leviLife = 3;
 
         this.isStarted = false;
 
@@ -98,7 +99,7 @@ var gameLeviState = new Phaser.Class({
 
     update: function() {
 
-        if (this.isGameOver(this.physics.world)) {
+        if (this.isGameOver()) {
             // 게임오버 메시지 보여주기
             BGM_LEVI.stop(); BGM_MAP.resume(); EFFECT_GAMEOVER.play();
             this.isStarted = false;
@@ -113,6 +114,7 @@ var gameLeviState = new Phaser.Class({
             game.scene.wake('3000');
         } else {
             // 레귤러 게임 타임
+            this.lifeCheck(this.physics.world)
             rmc.body.setVelocityX(0);
 
             if (cursors.left.isDown) {
@@ -134,12 +136,20 @@ var gameLeviState = new Phaser.Class({
 
     },
 
-    isGameOver: function (world) {
-        return ball.body.y > world.bounds.height;
+    isGameOver: function () {
+        return leviLife == 0;
     },
 
     isWon: function (world) {
         return bricks1.countActive() + bricks2.countActive() + bricks3.countActive() + bricks4.countActive() + bricks5.countActive() === 0;
+    },
+
+    lifeCheck: function(world) {
+        if (ball.body.y > world.bounds.height) { 
+            ball.body.y = 300; ball.body.x = 480;
+            leviLife -= 1;
+        }
+
     },
     
     hitBrick: function(ball, brick) {

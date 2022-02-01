@@ -329,7 +329,7 @@ var preloadState = new Phaser.Class({
         this.anims.create({ key: 'junha-2', frames: this.anims.generateFrameNumbers('k-junha', {start: 2, end: 5}), frameRate: 5 });
         this.anims.create({ 
             key: 'talk-j', 
-            frames: this.anims.generateFrameNumbers('talk-junha', {start: 0, end: 3}), 
+            frames: this.anims.generateFrameNumbers('talk-junha', {start: 0, end: 11}), 
             frameRate: 1, 
             hideOnComplete: true 
         });
@@ -339,7 +339,7 @@ var preloadState = new Phaser.Class({
         this.anims.create({ key: 'levi-3', frames: this.anims.generateFrameNumbers('levi', {start: 2, end: 9}), frameRate: 5 });
         this.anims.create({
             key: 'talk-l',
-            frames: this.anims.generateFrameNumbers('talk-levi', {start: 0, end: 1}),
+            frames: this.anims.generateFrameNumbers('talk-levi', {start: 0, end: 5}),
             frameRate: 1,
             hideOnComplete: true
         });
@@ -349,13 +349,13 @@ var preloadState = new Phaser.Class({
         this.anims.create({ key: 'rimo-3', frames: this.anims.generateFrameNumbers('rimo', {start: 6, end: 9}), frameRate: 5 });
         this.anims.create({
             key: 'talk-battery',
-            frames: [{ key: 'talk-nimo', frame: 0 }],
+            frames: this.anims.generateFrameNumbers('talk-nimo', {start: 0, end: 2}),
             frameRate: 1,
             hideOnComplete: true
         });
         this.anims.create({
             key: 'talk-r',
-            frames: this.anims.generateFrameNumbers('talk-nimo', {start: 1, end: 2}),
+            frames: this.anims.generateFrameNumbers('talk-nimo', {start: 3, end: 8}),
             frameRate: 1,
             hideOnComplete: true
         });
@@ -364,7 +364,7 @@ var preloadState = new Phaser.Class({
         this.anims.create({ key: 'zkp-2', frames: this.anims.generateFrameNumbers('zkp', {start: 8, end: 17}), frameRate: 7});
         this.anims.create({
             key: 'talk-z',
-            frames: this.anims.generateFrameNumbers('talk-zkp', {start: 0, end: 2}),
+            frames: this.anims.generateFrameNumbers('talk-zkp', {start: 0, end: 8}),
             frameRate: 1,
             hideOnComplete: true
         });
@@ -373,7 +373,7 @@ var preloadState = new Phaser.Class({
         this.anims.create({ key: 'byuri-2', frames: this.anims.generateFrameNumbers('byuri', {start: 4, end: 7}), frameRate: 5 });
         this.anims.create({ 
             key: 'talk-b', 
-            frames: this.anims.generateFrameNumbers('talk-byuri', {start: 0, end: 2}), 
+            frames: this.anims.generateFrameNumbers('talk-byuri', {start: 0, end: 8}), 
             frameRate: 1,
             hideOnComplete: true
         });
@@ -382,7 +382,7 @@ var preloadState = new Phaser.Class({
         this.anims.create({ key: 'wuwu-2', frames: this.anims.generateFrameNumbers('wuwu', {start: 16, end: 20}), frameRate: 5 });
         this.anims.create({ 
             key: 'talk-w', 
-            frames: this.anims.generateFrameNumbers('talk-wuwu', {start: 0, end: 2}), 
+            frames: this.anims.generateFrameNumbers('talk-wuwu', {start: 0, end: 8}), 
             frameRate: 1, 
             hideOnComplete: true 
         });
@@ -394,7 +394,7 @@ var preloadState = new Phaser.Class({
         this.anims.create({ key: 'cider-2', frames: this.anims.generateFrameNumbers('cider', {start: 3, end: 9}), frameRate: 5 });
         this.anims.create({
             key: 'talk-c',
-            frames: this.anims.generateFrameNumbers('talk-cider', {start: 0, end: 2}),
+            frames: this.anims.generateFrameNumbers('talk-cider', {start: 0, end: 8}),
             frameRate: 1,
             hideOnComplete: true
         });
@@ -403,7 +403,7 @@ var preloadState = new Phaser.Class({
         this.anims.create({ key: 'joy-2', frames: this.anims.generateFrameNumbers('joy', {start: 13, end: 14}), frameRate: 5 });
         this.anims.create({
             key: 'talk-jo',
-            frames: this.anims.generateFrameNumbers('talk-joy', {start: 0, end: 2}),
+            frames: this.anims.generateFrameNumbers('talk-joy', {start: 0, end: 8}),
             frameRate: 1,
             hideOnComplete: true
         });

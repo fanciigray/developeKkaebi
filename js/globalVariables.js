@@ -14,7 +14,7 @@ var CheckMet = [];
 var isBtrCollected = false;
 var LIKE_IT = false;
 var DISLIKE_IT = false;
-var velocity = 5;
+var velocity = 6;
 var FRONT_BACK_WIDTH = 1666;
 var ECT_WIDTH = 1280;
 var JUNHA, ZKP, BYURI, DUNGSIL, JOY, WUWU, CHILSUNG;
